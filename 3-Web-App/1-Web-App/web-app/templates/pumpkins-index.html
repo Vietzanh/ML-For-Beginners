@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>🛸 Pumpkins color prediction</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/styles.css') }}"
+    />
+  </head>
+
+  <body>
+    <div class="grid">
+      <div class="box">
+        <p>
+          According to city name, package, variety, origin, what color of the
+          pumpkin might be?
+        </p>
+
+        <form action="{{ url_for('predict')}}" method="post">
+          {# Item size dropdown #}
+          <label for="size">Item size:</label>
+          <select name="Size" id="size" required>
+            <option value="sml">sml</option>
+            <option value="med">med</option>
+            <option value="med-lge">med-lge</option>
+            <option value="lge">lge</option>
+            <option value="xlge">xlge</option>
+            <option value="jbo">jbo</option>
+            <option value="exjbo">exjbo</option>
+          </select>
+          <br /><br />
+
+          {# City name dropdown #}
+          <label for="city">City:</label>
+          <select name="City" id="city" required>
+            <option value="BALTIMORE">BALTIMORE</option>
+            <option value="ATLANTA">ATLANTA</option>
+            <option value="BOSTON">BOSTON</option>
+            <option value="CHICAGO">CHICAGO</option>
+            <option value="COLUMBIA">COLUMBIA</option>
+            <option value="LOS ANGELES">LOS ANGELES</option>
+            <option value="NEW YORK">NEW YORK</option>
+            <option value="DETROIT">DETROIT</option>
+            <option value="DALLAS">DALLAS</option>
+            <option value="MIAMI">MIAMI</option>
+            <option value="SAN FRANCISCO">SAN FRANCISCO</option>
+            <option value="PHILADELPHIA">PHILADELPHIA</option>
+            <option value="ST. LOUIS">ST. LOUIS</option>
+          </select>
+          <br /><br />
+
+          {# Package dropdown #}
+          <label for="package">Package:</label>
+          <select name="Package" id="package" required>
+            <option value="24 inch bins">24 inch bins</option>
+            <option value="36 inch bins">36 inch bins</option>
+            <option value="1 1/9 bushel cartons">1 1/9 bushel cartons</option>
+            <option value="1/2 bushel cartons">1/2 bushel cartons</option>
+            <option value="1 1/9 bushel crates">1 1/9 bushel crates</option>
+            <option value="bushel cartons">bushel cartons</option>
+            <option value="bins">bins</option>
+          </select>
+          <br /><br />
+
+          {# Variety dropdown #}
+          <label for="variety">Variety:</label>
+          <select name="Variety" id="variety" required>
+            <option value="HOWDEN TYPE">HOWDEN TYPE</option>
+            <option value="PIE TYPE">PIE TYPE</option>
+            <option value="BIG MACK TYPE">BIG MACK TYPE</option>
+            <option value="MINIATURE">MINIATURE</option>
+            <option value="CINDERELLA">CINDERELLA</option>
+            <option value="FAIRYTALE">FAIRYTALE</option>
+            <option value="BLUE TYPE">BLUE TYPE</option>
+            <option value="KNUCKLE HEAD">KNUCKLE HEAD</option>
+            <option value="HOWDEN WHITE TYPE">HOWDEN WHITE TYPE</option>
+          </select>
+          <br /><br />
+
+          {# Orogin dropdown #}
+          <label for="origin">Origin:</label>
+          <select name="Origin" id="origin" required>
+            <option value="DELAWARE">DELAWARE</option>
+            <option value="VIRGINIA">VIRGINIA</option>
+            <option value="MARYLAND">MARYLAND</option>
+            <option value="PENNSYLVANIA">PENNSYLVANIA</option>
+            <option value="OHIO">OHIO</option>
+            <option value="MICHIGAN">MICHIGAN</option>
+            <option value="ALABAMA">ALABAMA</option>
+            <option value="CANADA">CANADA</option>
+            <option value="TENNESSEE">TENNESSEE</option>
+            <option value="MASSACHUSETTS">MASSACHUSETTS</option>
+            <option value="VERMONT">VERMONT</option>
+            <option value="NEW YORK">NEW YORK</option>
+            <option value="ILLINOIS">ILLINOIS</option>
+            <option value="NORTH CAROLINA">NORTH CAROLINA</option>
+            <option value="CALIFORNIA">CALIFORNIA</option>
+            <option value="NEW JERSEY">NEW JERSEY</option>
+            <option value="TEXAS">TEXAS</option>
+            <option value="MEXICO">MEXICO</option>
+          </select>
+          <br /><br />
+
+          <button type="submit" class="btn">
+            Predict color of the pumpkin
+          </button>
+        </form>
+
+        <p>{{ prediction_text }}</p>
+      </div>
+    </div>
+  </body>
+</html>
